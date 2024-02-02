@@ -66,7 +66,7 @@ body{
 
 #blog-container{
     height: 70vh;
-    width: 70%;
+    width: 79%;
     display: flex;
     flex-direction: column;
     overflow:auto;
@@ -74,22 +74,23 @@ body{
     scrollbar-color: #4e54c8 #fff;
 }
 
-.self-end{
-    place-self: end;
+.output-btn{
+    justify-self: center;
+    align-self: end;
 }
 
 .title-output{
-    margin-top:15px; height: 20px; width:fit-content; border: 0; font-weight: bold; font-size: 1.5rem;
+    margin-top:15px; height: 30px; width:fit-content; border: 0; font-weight: bold; font-size: 1.5rem;
 }
 
 .content-output{
-    margin-top:5px; height: 150px; overflow: auto; width:100%; grid-column: span 2;
+    margin-top:5px; height: 150px; overflow: auto; width:100%; grid-column: span 3;
     scrollbar-width: thin;
     scrollbar-color: #fff #4e54c8;
 }
 
 .output-form{
-    display: grid; grid-template-columns: 1fr 1fr;
+    display: grid; grid-template-columns: auto 1fr 1fr;
 }
 
 .textbox{
@@ -119,13 +120,16 @@ body{
     resize: none;
 }
 
-#submit-btn{
-    width:50%;
-    align-self: center;
+.button{
     border: 2px solid #4e54c8;
     border-radius: 0.4rem;
     color: #4e54c8;
-    background-color: transparent;    
+    background-color: transparent;
+}
+
+#submit-btn{
+    width:50%;
+    align-self: center;   
 }
 
 .profile {
@@ -265,4 +269,20 @@ body{
         border-radius: 50%;
     }
 
+}
+
+@media (max-width: 1100px) {
+    #main-container{
+        display: flex;   
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 2rem 0 2rem;
+    }
+    #blog-container{
+        width: 95%;
+    }
+    #content-container{
+        width: 100%;
+    }
 }
