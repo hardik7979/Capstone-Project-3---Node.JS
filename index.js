@@ -49,15 +49,19 @@ app.post("/submit", (req, res)=>{
 });
 
 app.post("/search", (req, res)=>{
-    let dataFound = 0;
-    blogData.forEach((blogObj)=>{
-        if( blogObj.title == req.body.titleSelected )
-        {
-            dataFound = 1;
-            res.render("index.ejs",{year:year, blogObj:blogObj});
-        }
-    });
-    if (dataFound == 0)
+    if (req.body.UpdateCommand){
+        blogData.forEach((blogObj)=>{
+            if( blogObj.title == req.body.titleSelected )
+            {
+                res.render("index.ejs",{year:year, blogObj:blogObj});
+            }
+        });
+    }
+    else if (req.body.DeleteCommand){
+        blogData.splice(blogData.indexOf(req.body.titleSelected), 1);
+        res.render("blogs.ejs", {blogData : blogData, year: year});
+    }
+    else
     {
         res.redirect("/");
     }
