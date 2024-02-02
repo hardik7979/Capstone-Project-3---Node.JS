@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 
 // Initiating the Express App and Port
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 let date = new Date();
 let year = date.getFullYear();
 let blogData =[];
