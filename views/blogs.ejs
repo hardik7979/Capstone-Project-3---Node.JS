@@ -6,11 +6,12 @@
             <div id="blog-container">
                 <% blogData.forEach((blogObjects) => { %>
                     <div>
-                    <form class="output-form" action="/search" method="POST">
-                        <input type="text" name="titleSelected" class="title-output" value="<%= blogObjects.title %>">
-                        <input class="self-end" id="submit-btn" type="submit" value="Edit this Blog!">
+                        <form class="output-form" action="/search" method="POST">
+                            <input type="text" name="titleSelected" class="title-output" value="<%= blogObjects.title %>">
+                            <input name="UpdateCommand" class="button output-btn" type="submit" value="Edit this Blog!">
+                            <input name="DeleteCommand" class="button output-btn" type="submit" value="Delete Blog!">
+                        </form>
                         <p class="content-output"> <%= blogObjects.content %> </p>
-                    </form> 
                     </div>
                 <% }); %>
             </div>
