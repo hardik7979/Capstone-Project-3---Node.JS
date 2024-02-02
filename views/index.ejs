@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+<section id="center-div">
+    <div id="main-container">
+        <h2>Get on typing! Or, <a id="redirect-link" href="/blogs">check out your old blogs here!</a></h2>
+        <div id="content-container">
+            <form id="form-input" action="/submit" method="POST">
+                <% if (locals.blogObj){ %>
+                    <input id="title-input" class="textbox" name="title" value="<%= blogObj.title %>" type="text" placeholder="Enter your blog's title!">
+                    <textarea id="blog-input" class="textbox" type="text" name="content" placeholder="Start writing your blog.."><%= blogObj.content %></textarea>
+                <% }else{%>
+                    <input id="title-input" class="textbox" name="title" type="text" placeholder="Enter your blog's title!">
+                    <textarea id="blog-input" class="textbox" type="text" name="content" placeholder="Start writing your blog.."></textarea>
+                <% } %>
+                <input id="submit-btn" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</section>
+
+<%- include("partials/footer.ejs") %>

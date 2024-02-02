@@ -1,0 +1,22 @@
+<%- include("partials/header.ejs") %>
+<section id="blog-content">
+    <div id="main-container">
+        <% if (locals.blogData.length) { %>
+            <h2>View, or click on a post title to update it! Or, <a id="redirect-link" href="/">get back to typing!</a></h2>
+            <div id="blog-container">
+                <% blogData.forEach((blogObjects) => { %>
+                    <div>
+                    <form class="output-form" action="/search" method="POST">
+                        <input type="text" name="titleSelected" class="title-output" value="<%= blogObjects.title %>">
+                        <input class="self-end" id="submit-btn" type="submit" value="Edit this Blog!">
+                        <p class="content-output"> <%= blogObjects.content %> </p>
+                    </form> 
+                    </div>
+                <% }); %>
+            </div>
+        <% }else{ %>
+            <h2>No blogs written yet! <a id="redirect-link" href="/">Get back to writing!!</a></h2>
+        <% } %>
+    </div>
+</section>
+<%- include("partials/footer.ejs") %>
